@@ -3,7 +3,7 @@ sudo apt update;
 sudo apt install nginx nodejs redis-server -y;
 read -p  "Digite o domínio do seu site:" domain;
 read -p "Digite o dominio do seu app no firebase:" app;
-read -p "Digite a porta que seu appvai rodar:" port;
+read -p "Digite a porta que seu app vai rodar:" port;
 # Configurações do NGINX
 sudo rm -f /etc/nginx/sites-enabled/$app.conf;
 sudo cp -f sample/nginx.conf /etc/nginx/sites-enabled/$app.conf;
