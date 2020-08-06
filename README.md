@@ -17,3 +17,5 @@ Chrome Headless
 ExpressJS
 
 Caso de uso: https://focanofato.com
+
+Vídeo explicativo: https://www.youtube.com/watch?v=W4U7JNZcffc
