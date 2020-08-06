@@ -9,7 +9,7 @@ async function loadUrl(req, res) {
   const url = 'https://{app}' + req.originalUrl;
   var html;
   RENDER_CACHE.get(cache_url, async (err, data) => { 
-    if(data && !req.query.updatecache) {
+    if(data && !req.query.{updatekey}) {
       res.send(data)
     } else {
       const browser = await puppeteer.launch();
