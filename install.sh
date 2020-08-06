@@ -11,7 +11,7 @@ sudo sed -i "s/{app}/$app/g" /etc/nginx/sites-enabled/$app.conf;
 sudo sed -i "s/{port}/$port/g" /etc/nginx/sites-enabled/$app.conf;
 sudo mkdir -p /var/www/$app;
 sudo rm -f /var/www/$app/package.json;
-sudo cp -f sample/package.mjs /var/www/$app/package.json;
+sudo cp -f sample/package.json /var/www/$app/package.json;
 sudo sed -i "s/{app}/$app/g" /var/www/$app/package.json;
 sudo rm -f /var/www/$app/index.mjs;
 sudo cp -f sample/index.mjs /var/www/$app/index.mjs;
