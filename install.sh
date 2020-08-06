@@ -1,4 +1,5 @@
-apt update
+sudo su;
+apt update;
 apt install nginx nodejs redis-server -y;
 read -p  "Digite o domínio do seu site:" domain;
 read -p "Digite o dominio do seu app no firebase:" app;
@@ -19,4 +20,5 @@ sed -i "s/{port}/$port/g" /var/www/$app/index.mjs;
 cd /var/www/$app;
 npm install;
 nginx -s reload;
+exit;
 pm2 start node -- /var/www/$app/index.mjs;
