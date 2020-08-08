@@ -4,8 +4,8 @@ use phpseclib\Net\SSH2;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-error_reporting(E_ALL); 
-ini_set('display_errors', E_ALL);
+error_reporting(E_NONE); 
+ini_set('display_errors', E_NONE);
 session_start();
 
 extract($_POST);
@@ -71,3 +71,4 @@ $ssh->exec("pm2 delete '{$domain}:{$port}'");
 $ssh->exec("pm2 start node --name='{$domain}:{$port}' -- $dir/index.mjs");
 $root->exec("certbot --nginx --noninteractive --agree-tos -d $domain -m 'albreisdev@gmail.com'");
 $root->exec("nginx -s reload");
+header('Location:/');
