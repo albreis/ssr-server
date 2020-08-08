@@ -28,4 +28,4 @@ cd /var/www/$app;
 # Instala dependências do app
 npm install;
 # Inicia o servidor em background
-pm2 start node -- /var/www/$app/index.mjs;
+pm2 start node --name="$domain:$port" -- /var/www/$app/index.mjs;
