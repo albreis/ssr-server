@@ -14,7 +14,6 @@ read -p  "Digite o domínio do seu servidor SSR:" domain;
 sudo rm -f /etc/nginx/sites-enabled/$domain.conf;
 sudo cp -f sample/server.conf /etc/nginx/sites-enabled/$domain.conf;
 sudo sed -i "s/{domain}/$domain/g" /etc/nginx/sites-enabled/$domain.conf;
-wwwroot=$PWD;
-sudo sed -i "s~{wroot}~$wwwroot~g" /etc/nginx/sites-enabled/$domain.conf;
+sudo sed -i "s~{wroot}~$PWD~g" /etc/nginx/sites-enabled/$domain.conf;
 sudo nginx -s reload;
 sudo certbot --nginx --noninteractive --agree-tos -d $domain -m 'contato@albreis.com.br';
