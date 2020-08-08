@@ -21,6 +21,7 @@ async function loadUrl(req, res) {
       await page.waitFor(2000);
       html = await page.evaluate(() => {return document.documentElement.innerHTML;});
       RENDER_CACHE.set(cache_url, html)
+      await browser.close();
       res.send(html);
     }
   })  
