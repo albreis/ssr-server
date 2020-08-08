@@ -43,15 +43,18 @@ $values = [$domain, $app, $port, $key, $dir];
 $_SESSION['config'] = array_combine($keys, $values);
 
 # Configurações do NGINX
-if(!file_exists("/etc/nginx/sites-enabled/{$domain}.conf"))
-  file_put_contents("/etc/nginx/sites-enabled/{$domain}.conf", str_replace($keys, $values, file_get_contents(__DIR__ . '/sample/nginx.conf')));
+if(file_exists("/etc/nginx/sites-enabled/{$domain}.conf"))
+  unlink("/etc/nginx/sites-enabled/{$domain}.conf");
+file_put_contents("/etc/nginx/sites-enabled/{$domain}.conf", str_replace($keys, $values, file_get_contents(__DIR__ . '/sample/nginx.conf')));
 
 # Configurações NPM
-if(!file_exists("{$dir}/package.json"))
+if(file_exists("{$dir}/package.json"))
+unlink("{$dir}/package.json");
   file_put_contents("{$dir}/package.json", str_replace($keys, $values, file_get_contents(__DIR__ . '/sample/package.json')));
 
 # Configurações do servidor NodeJS
-if(!file_exists("{$dir}/index.mjs"))
+if(file_exists("{$dir}/index.mjs"))
+unlink("{$dir}/index.mjs");
   file_put_contents("{$dir}/index.mjs", str_replace($keys, $values, file_get_contents(__DIR__ . '/sample/index.mjs')));
 
 # Within a controller for example:
