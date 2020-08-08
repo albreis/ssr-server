@@ -17,3 +17,5 @@ sudo sed -i "s/{domain}/$domain/g" /etc/nginx/sites-enabled/$domain.conf;
 sudo sed -i "s~{wroot}~$PWD~g" /etc/nginx/sites-enabled/$domain.conf;
 sudo nginx -s reload;
 sudo certbot --nginx --noninteractive --agree-tos -d $domain -m 'contato@albreis.com.br';
+sudo mkdir apps;
+sudo chmod 0777 apps;

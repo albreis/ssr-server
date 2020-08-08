@@ -18,8 +18,8 @@ if(!file_exists($dir)) {
 
 # Pega a porta
 if(!file_exists("{$dir}/port.txt")) {
-  $port = (int) file_get_contents(__DIR__ . '/lastport.txt');
-  file_put_contents(__DIR__ . '/lastport.txt', $port + 1);
+  $port = (int) file_get_contents(__DIR__ . '/apps/lastport.txt');
+  file_put_contents(__DIR__ . '/apps/lastport.txt', $port + 1);
   file_put_contents("{$dir}/port.txt", $port);
 }
 

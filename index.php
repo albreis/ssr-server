@@ -23,7 +23,8 @@
     <div>
       APP: <?php echo $_SESSION['config']['{app}']; ?><br/>
       Domínio: <?php echo $_SESSION['config']['{domain}']; ?><br/>
-      Chave para limpeza de cache: <?php echo $_SESSION['config']['{updatekey}']; ?><br/>
+      Chave para limpeza de cache de página única: <?php echo $_SESSION['config']['{updatekey}']; ?><br/>
+      Chave para limpeza de cache total: <?php echo $_SESSION['config']['{updatekey}']; ?>All<br/>
     </div>
     <?php endif; ?>
   </form>
