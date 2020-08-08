@@ -8,11 +8,11 @@ async function loadUrl(req, res) {
   const cache_url = 'https://{app}' + req.path;
   const url = 'https://{app}' + req.originalUrl;
   var html;
-  if(req.query['{updatekey}All']) {
+  if('{updatekey}All' in req.query) {
     RENDER_CACHE.flushall();
   }
   RENDER_CACHE.get(cache_url, async (err, data) => { 
-    if(data && !req.query['{updatekey}']) {
+    if(data && !('{updatekey}' in req.query)) {
       res.send(data)
     } else {
       const browser = await puppeteer.launch();
